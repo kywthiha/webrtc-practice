@@ -4,8 +4,6 @@ const myInfoDiv = document.getElementById('myInfo')
 const conversation = {}
 var peerConnectionConfig = {
     'iceServers': [
-        { 'urls': 'stun:stun.services.mozilla.com' },
-        { 'urls': 'stun:stun.l.google.com:19302' },
         { "urls": "stun:stun.ideasip.com" }
     ]
 };
