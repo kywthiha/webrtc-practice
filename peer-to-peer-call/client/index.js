@@ -105,7 +105,7 @@ const signalOffer = (pc, data) => {
             };
             pc.addStream(stream);
 
-            pc.setRemoteDescription(data.data).then((res) => {
+            pc.setRemoteDescription(new RTCSessionDescription(data.data)).then((res) => {
                 console.log(res)
                 pc.createAnswer().then(a => {
                     pc.setLocalDescription(a)
@@ -121,11 +121,11 @@ const signalOffer = (pc, data) => {
 
 const signalCandidate = (pc, data) => {
     if (pc && data && data.data)
-        pc.addIceCandidate(data.data).then(res => console.log(res))
+        pc.addIceCandidate(new RTCIceCandidate(data.data)).then(res => console.log(res))
 }
 
 const signalAnswer = (pc, data) => {
-    pc.setRemoteDescription(data.data).then(res => {
+    pc.setRemoteDescription(new RTCSessionDescription(data.data)).then(res => {
         console.log(res)
     });
 }
@@ -133,7 +133,9 @@ const signalAnswer = (pc, data) => {
 socket.on('signal', (data) => {
     switch (data.type) {
         case 'offer': signalOffer(pc, data); break;
-        case 'candidate': signalCandidate(pc, data); break;
+        case 'candidate': setTimeout(()=>{
+            signalCandidate(pc, data)
+        },5000); break;
         case 'answer': signalAnswer(pc, data); break;
     }
 });
