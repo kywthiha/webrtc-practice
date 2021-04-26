@@ -11,7 +11,7 @@ var peerConnectionConfig = {
 };
 let users = []
 
-const baseUrl = 'http://127.0.0.1:3800'
+const baseUrl = 'https://webrtc-peer-to-peer.glitch.me'
 const pc = new RTCPeerConnection(peerConnectionConfig);
 const socket = io(baseUrl)
 
