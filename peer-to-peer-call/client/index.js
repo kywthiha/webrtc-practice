@@ -5,23 +5,14 @@ const conversation = {}
 var peerConnectionConfig = {
     'iceServers': [
         {urls:"stun:stun.l.google.com:19302"},
-        // {
-        //     urls: 'turn:192.158.29.39:3478?transport=udp',
-        //     credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-        //     username: '28224511:1379330808'
-        // },
-        // {
-        //     urls: 'turn:192.158.29.39:3478?transport=tcp',
-        //     credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-        //     username: '28224511:1379330808'
-        // },
-         {
-            urls: 'turn:turn.anyfirewall.com:443?transport=tcp',
-            credential: 'webrtc',
-            username: 'webrtc'
-        }
+        {
+            urls: 'turn:numb.viagenie.ca',
+            credential: 'thiha0905@gmail.com',
+            username: '11111111'
+        },
     ]
 };
+
 let users = []
 
 const baseUrl = 'https://webrtc-peer-to-peer.glitch.me'
