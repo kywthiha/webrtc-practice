@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+
+    .users {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .video {
+        display: flex;
+        position: relative;
+
+        .myVideo {
+            width: 200px;
+            object-fit: cover;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .otherVideo {
+            width: 400px;
+            object-fit: cover;
+        }
+    }
+}
+
+.myInfo{
+    
+    .name{
+        text-align: center;
+    }
+}
