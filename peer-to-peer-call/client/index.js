@@ -4,7 +4,32 @@ const myInfoDiv = document.getElementById('myInfo')
 const conversation = {}
 var peerConnectionConfig = {
     'iceServers': [
-        { "urls": "stun:stun.ideasip.com" }
+        { "urls": "stun:stun.ideasip.com" },
+        {
+            urls: 'turn:numb.viagenie.ca',
+            credentials: 'muazkh',
+            username: 'webrtc@live.com'
+        },
+        {
+            urls: 'turn:192.158.29.39:3478?transport=udp',
+            credentials: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+            username: '28224511:1379330808'
+        },
+        {
+            urls: 'turn:192.158.29.39:3478?transport=tcp',
+            credentials: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+            username: '28224511:1379330808'
+        },
+        {
+            urls: 'turn:turn.bistri.com:80',
+            credentials: 'homeo',
+            username: 'homeo'
+         },
+         {
+            urls: 'turn:turn.anyfirewall.com:443?transport=tcp',
+            credentials: 'webrtc',
+            username: 'webrtc'
+        }
     ]
 };
 let users = []
