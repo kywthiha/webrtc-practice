@@ -70,8 +70,8 @@ const call = (pc, user) => ((event) => {
     requestVideoAudio().then(stream => {
         conversation.otherUser = user
         addVideoUi(videoDiv, stream, 'myVideo');
-        pc.onaddstream = (event) => {
-            addVideoUi(videoDiv, event.stream, 'otherVideo');
+        pc.ontrack = (event) => {
+            addVideoUi(videoDiv, event.streams[0], 'otherVideo');
         };
         pc.addStream(stream);
         pc.createOffer().then(o => {
@@ -102,8 +102,8 @@ const signalOffer = (pc, data) => {
             console.log(data.conversation)
             conversation.otherUser = data.conversation.myUser
             addVideoUi(videoDiv, stream, 'myVideo');
-            pc.onaddstream = (event) => {
-                addVideoUi(videoDiv, event.stream, 'otherVideo');
+            pc.ontrack = (event) => {
+                addVideoUi(videoDiv, event.streams[0], 'otherVideo');
             };
             pc.addStream(stream);
 
